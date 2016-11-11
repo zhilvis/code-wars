@@ -1,0 +1,16 @@
+(page "index.html"
+      (:require [castra.core :as c]
+                [javelin.core :refer-macros  [defc]]))
+
+(defc qq nil)
+(defc err nil)
+(defc loading nil)
+
+(def get-yoda-quote (c/mkremote 'inventi.backend/qq qq err loading))
+
+(html
+  (head
+    (link :href  "app.css" :rel  "stylesheet" :type  "text/css"))
+  (body (h1 "Test zis " qq)))
+
+(get-yoda-quote)
